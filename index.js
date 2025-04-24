@@ -8,12 +8,14 @@ app.use(cors());
 
 app.get('/company-info', async (req, res) => {
   const domain = req.query.domain;
+  const cleanDomain = domain.replace(/^www\\./, '');
+
   if (!domain) return res.status(400).json({ error: 'Missing domain param' });
 
   try {
     const openData = await axios.get(
-      `https://api.opencorporates.com/companies/search?q=${domain}`
-    );
+  `https://api.opencorporates.com/companies/search?q=${cleanDomain}`
+);
     const company = openData?.data?.results?.companies?.[0]?.company || {};
 
     res.json({
