@@ -1,8 +1,7 @@
-
 import express from 'express';
 import cors from 'cors';
 import axios from 'axios';
-import cheerio from 'cheerio';
+import * as cheerio from 'cheerio';
 import OpenAI from 'openai';
 
 const app = express();
