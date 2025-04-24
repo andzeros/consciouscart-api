@@ -33,7 +33,7 @@ app.get('/summary', async (req, res) => {
 
   let combinedText = '';
   for (const page of pages) {
-    const content = await scrapeText(page);
+    const content = await scrapeText(page); 
     if (content.length > 500) {
       combinedText += `\n\nFrom ${page}:\n` + content;
     }
